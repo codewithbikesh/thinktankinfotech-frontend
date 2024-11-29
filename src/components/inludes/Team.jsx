@@ -1,6 +1,11 @@
 import React from "react";
+import '../../css/Team.css'
+import { useEffect } from "react";
+import { useState } from "react";
+import {EmailListBlock} from './../aboutus/Aboutus'
 
-const Team = () => {
+
+export const Team = () => {
   const teamMembers = [
     {
       name: "Esther Howard",
@@ -45,8 +50,36 @@ const Team = () => {
         instagram: "",
         youtube: ""
       }
-    }
+    },
+        {
+      name: "Esther Howard",
+      job: "Hair Expert",
+      imageUrl: "https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/stylist1.jpg",
+      socialLinks: {
+        linkedin: "",
+        twitter: "",
+        instagram: "",
+        youtube: ""
+      }
+    },
   ];
+  // Fisher-Yates shuffle algorithm
+  const shuffleArray = (arr) => {
+    const shuffledArray = [...arr]; // Create a copy of the array to avoid mutating the original
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]]; // Swap elements
+    }
+    return shuffledArray;
+  };
+
+  // Shuffle the team members when the component mounts
+  const [shuffledMembers, setShuffledMembers] = useState([]);
+
+  useEffect(() => {
+    setShuffledMembers(shuffleArray(teamMembers));
+  }, []); // Only run on initial mount
+
 
   return (
     <section id="meet-team-977">
@@ -55,13 +88,11 @@ const Team = () => {
           <span className="cs-topper">Our Team</span>
           <h2 className="cs-title">Our Expert Team Members</h2>
           <p className="cs-text">
-            At Stitch Salon Service, we strive to give the best experience and
-            service to every client that walks in the door. Meet the team members
-            that make it all possible.
+    Our expert team specializes in web development with technologies like ReactJS, Redux Toolkit, JavaScript, Laravel, Node.js, and more, delivering high-quality, scalable, and innovative solutions to meet your business needs.
           </p>
         </div>
-        <ul className="cs-card-group">
-          {teamMembers.map((member, index) => (
+        <ul className="cs-card-group teamPageWrapper">
+          {shuffledMembers.map((member, index) => (
             <li className="cs-item" key={index}>
               <picture className="cs-picture">
                 {/* Mobile Image */}
@@ -103,8 +134,12 @@ const Team = () => {
               </div>
             </li>
           ))}
+<div className="w-[75%] grid items-center teamRes">
+      <EmailListBlock></EmailListBlock>
+</div>
         </ul>
       </div>
+
     </section>
   );
 };

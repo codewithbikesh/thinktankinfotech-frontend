@@ -1,12 +1,14 @@
 
-export default Team;
 import React from "react";
 import { motion } from "framer-motion";
 import { twMerge } from "tailwind-merge";
 import { FiArrowRight, FiMail, FiMapPin } from "react-icons/fi";
-import { SiGithub, SiTiktok, SiTwitter, SiYoutube } from "react-icons/si";
+import { SiGithub, SiTiktok, SiYoutube } from "react-icons/si";
+import {Team} from '../inludes/Team'
+import {TextAnimatedCard} from '../inludes/cards/CardTextAnimate'
 
-export const RevealBento = () => {
+
+export const Aboutus = () => {
   return (
     <div className="min-h-screen bg-zinc-900 px-4 py-12 text-zinc-50">
       <Logo />
@@ -16,15 +18,18 @@ export const RevealBento = () => {
         transition={{
           staggerChildren: 0.05,
         }}
-        className="mx-auto grid max-w-4xl grid-flow-dense grid-cols-12 gap-4"
+        className="mx-auto grid max-w-[85%] grid-flow-dense grid-cols-12 gap-4 aboutPgaeContentWrapper"
       >
         <HeaderBlock />
         <SocialsBlock />
         <AboutBlock />
         <LocationBlock />
-        <EmailListBlock />
       </motion.div>
-      <Footer />
+ <div className="mx-auto grid max-w-[85%]">
+<AboutTeam></AboutTeam>
+ </div>
+        {/* <EmailListBlock /> */}
+
     </div>
   );
 };
@@ -67,9 +72,9 @@ const HeaderBlock = () => (
       className="mb-4 size-14 rounded-full"
     />
     <h1 className="mb-12 text-4xl font-medium leading-tight">
-      Hi, I'm Tom.{" "}
+      ThinkTankTech{" "}
       <span className="text-zinc-400">
-        I build cool websites like this one.
+is a <span className="text-[#9ca3af]"> tech</span> leader driving  Business <span className="text-[white]">growth</span>  through <span className="text-[#8ef9ff]"> Innovation.</span>
       </span>
     </h1>
     <a
@@ -136,7 +141,7 @@ const SocialsBlock = () => (
         href="#"
         className="grid h-full place-content-center text-3xl text-white"
       >
-        <SiTwitter />
+        {/* <SiTwitter /> */}
       </a>
     </Block>
   </>
@@ -162,10 +167,10 @@ const LocationBlock = () => (
   </Block>
 );
 
-const EmailListBlock = () => (
-  <Block className="col-span-12 md:col-span-9">
-    <p className="mb-3 text-lg">Join my mailing list</p>
-    <form
+export const EmailListBlock = () => (
+  <Block className="col-span-12 md:col-span-12 h-full">
+    <p className="mb-3 text-lg">See what we have built so far.</p>
+    {/* <form
       onSubmit={(e) => e.preventDefault()}
       className="flex items-center gap-2"
     >
@@ -180,7 +185,8 @@ const EmailListBlock = () => (
       >
         <FiMail /> Join the list
       </button>
-    </form>
+    </form> */}
+<TextAnimatedCard></TextAnimatedCard>
   </Block>
 );
 
@@ -207,15 +213,13 @@ const Logo = () => {
   );
 };
 
-const Footer = () => {
+const AboutTeam = () => {
   return (
-    <footer className="mt-12">
-      <p className="text-center text-zinc-400">
-        Made with ❤️ by{" "}
-        <a href="#" className="text-red-300 hover:underline">
-          @tomisloading
-        </a>
-      </p>
-    </footer>
+    <>
+    <div className="about_sec_team_wrapper">
+      <Team></Team>
+    </div>
+
+    </>
   );
 };

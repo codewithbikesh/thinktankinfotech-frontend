@@ -8,7 +8,9 @@ import CarousalText from './components/homepage/Carousal'
 import { DragCards } from './components/homepage/DragCards'
 import {Routes, Route} from 'react-router-dom'
 // HOMEPAGE COMPONENTS ENDS HERE
-
+import {Aboutus} from './components/aboutus/Aboutus'
+import Footer from './components/inludes/Footer'
+import { Services } from './components/services/Services'
 
 function App() {
   return (
@@ -38,9 +40,11 @@ function App() {
     
     }></Route>
   
-  <Route path='/about' element={<About></About>}></Route>
+  <Route path='/about' element={<Aboutus></Aboutus>}></Route>
+  <Route path='/services' element={<Services></Services>}></Route>
 </Routes>
 
+<Footer></Footer>
 </>
   )
 }
