@@ -15,21 +15,32 @@ const teamMembers = [
   },
   {
     name: 'Pradip Timsina',
-    role: 'CO-Founder',
+    role: 'Chief Executive Officer (CEO)',
     image: pradip,
-    linkedin: '#',
+    linkedin: 'https://www.linkedin.com/in/pradiptimsina?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
     email: 'pradip.timsina@thinktankinfotech.com',
   },
   {
     name: 'Bikesh Gupta',
-    role: 'CO-Founder',
+    role: 'Chief Technical Officer (CTO)',
     image: bikesh,
     linkedin: 'https://np.linkedin.com/in/bikesh-kumar-gupta-aa646b236',
     email: 'bikesh.gupta@thinktankinfotech.com',
   },
   {
     name: 'Dharmendra Thakur',
-    role: 'CO-Founder',
+    role: 'Research & Development Head (R&D)',
+    image: dharmendra,
+    linkedin: '#',
+    email: 'dharmendra.thakur@thinktankinfotech.com',
+  },
+];
+
+// Our advisors deta here 
+const OurAdvisors = [
+  {
+    name: 'Harihar Kadel',
+    role: 'Oracle',
     image: dharmendra,
     linkedin: '#',
     email: 'dharmendra.thakur@thinktankinfotech.com',
@@ -38,15 +49,17 @@ const teamMembers = [
 
 const TeamGrid = () => {
   return (
+    <>
     <section className="py-20 bg-gray-50">
+    {/* Add teams details here  */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Meet Our Team</h2>
-          <p className="text-xl text-gray-600">
+          <h2 className="text-3xl font-bold text-gray-700 mb-4" data-aos="zoom-in">Meet Our Team</h2>
+          <p className="text-xl text-gray-600" data-aos="zoom-in">
             The brilliant minds behind our success
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" data-aos="fade-up" data-aos-duration="1000">
           {teamMembers.map((member, index) => (
             <div
               key={index}
@@ -80,6 +93,38 @@ const TeamGrid = () => {
         </div>
       </div>
     </section>
+    
+    {/* Add advisor details here  */}
+    <section className="py-5 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold text-gray-700 mb-4" data-aos="zoom-in">Our Advisors</h2>
+          {/* <p className="text-xl text-gray-600">
+            The brilliant minds behind our success
+          </p> */}
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" data-aos="fade-up" data-aos-duration="1000">
+          {OurAdvisors.map((member, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+            >
+              <img
+                src={member.image}
+                alt={member.name}
+                className="w-full h-64 object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-1">{member.name}</h3>
+                <p className="text-gray-600 mb-4">{member.role}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+</>
+    
   );
 };
 

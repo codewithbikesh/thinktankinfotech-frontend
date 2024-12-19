@@ -8,7 +8,7 @@ const CompanyIntro = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl font-bold text-gray-700 mb-6">
               About Think Tank Info Tech
             </h1>
             <p className="text-lg text-gray-600 mb-8">
@@ -27,7 +27,7 @@ const CompanyIntro = () => {
               <div className="flex items-start space-x-4">
                 <Target className="h-6 w-6 text-green-600 mt-1" />
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  <h3 className="text-xl font-semibold text-gray-700 mb-2">
                     Our Mission
                   </h3>
                   <p className="text-gray-600">
@@ -39,7 +39,7 @@ const CompanyIntro = () => {
               <div className="flex items-start space-x-4">
                 <Lightbulb className="h-6 w-6 text-green-600 mt-1" />
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  <h3 className="text-xl font-semibold text-gray-700 mb-2">
                     Our Vision
                   </h3>
                   <p className="text-gray-600">
@@ -55,6 +55,7 @@ const CompanyIntro = () => {
               src={About_Banner}
               alt="Team collaboration"
               className="rounded-lg shadow-xl"
+              data-aos="zoom-in-left"
             />
           </div>
         </div>

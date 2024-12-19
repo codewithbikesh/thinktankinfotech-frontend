@@ -15,7 +15,7 @@ const contactDetails = [
   {
     icon: Mail,
     title: 'Email Us',
-    details: ['info@thinktankinfotech.com'],
+    details: ['info@thinktankinfotech.com','thinktankinfotech5@gmail.com'],
   },
   {
     icon: Clock,
@@ -26,7 +26,7 @@ const contactDetails = [
 
 const ContactInfo = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade-up" data-aos-duration="1000">
   {contactDetails.map((item, index) => (
     <div key={index} className="flex items-start space-x-4">
       <div className="flex-shrink-0">

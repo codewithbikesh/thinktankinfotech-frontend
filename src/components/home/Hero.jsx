@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 import banner  from '../../assets/images/hero_background.png';
 
 const Hero = () => {
+  useEffect(() => {
+    // Initialize AOS
+    AOS.init({
+      duration: 1000, // animation duration
+      easing: 'ease-in-out', // easing function
+      once: true, // animation runs only once
+    });
+  }, []); // Empty dependency array ensures it runs only once after the first render
+
   return (
     <section className="flex flex-col-reverse sm:flex-row justify-between items-center p-6 sm:p-12 mt-[57px] bg-gray-200">
       <div className="text-left flex-1">
@@ -20,6 +31,7 @@ const Hero = () => {
           src={banner}
           alt="Team working together"
           className="max-w-full h-auto rounded-lg"
+          data-aos="zoom-in-left"
         />
       </div>
     </section>
