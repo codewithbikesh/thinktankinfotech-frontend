@@ -17,25 +17,9 @@ const services = [
     description: 'Highly functional & visually appealing website designed to meet your need.',
   },
   {
-    icon: Content_Creator,
-    title: 'Content Writing',
-    description: 'Engaging and meaningful content to connect with your audience',
-  },
-  {
     icon: Mobile_Application,
     title: 'App Development',
     description: 'Tailored software solutions designed to meet your specific requirements.',
-  },
-  {
-    icon: Design_Feedback,
-    title: 'UI/UX',
-    description: 'Design eye-catching UI/UX interfaces for effortless user interaction',
-  },
-
-  {
-    icon: Online_add,
-    title: 'Search Engine Optimization (SEO)',
-    description: 'Custom SEO solutions for enhanced search engine visibility and growth',
   },
   {
     icon: Web_Design,
@@ -46,6 +30,23 @@ const services = [
     icon: Software_Development,
     title: 'System/Software Development',
     description: 'System/software developed according to your business needs.',
+  },
+  {
+    icon: Content_Creator,
+    title: 'Content Writing',
+    description: 'Engaging and meaningful content to connect with your audience',
+  },
+ 
+  {
+    icon: Design_Feedback,
+    title: 'UI/UX Design',
+    description: 'Design eye-catching UI/UX interfaces for effortless user interaction',
+  },
+
+  {
+    icon: Online_add,
+    title: 'Search Engine Optimization (SEO)',
+    description: 'Custom SEO solutions for enhanced search engine visibility and growth',
   },
   {
     icon: SMM,

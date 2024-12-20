@@ -4,21 +4,22 @@ import bikesh  from '../../assets/images/team/bikesh.jpg';
 import janam  from '../../assets/images/team/janam.jpeg';
 import pradip  from '../../assets/images/team/pradip.jpg';
 import dharmendra  from '../../assets/images/team/dharmendra.jpg';
+import harihar  from '../../assets/images/team/harihar.jpeg';
 
 const teamMembers = [
-  {
-    name: 'Janam Pandey',
-    role: 'Managing Director (MD)',
-    image: janam,
-    linkedin: 'https://np.linkedin.com/in/janam-pandey-6bb571199',
-    email: 'janam.pandey@thinktankinfotech.com',
-  },
   {
     name: 'Pradip Timsina',
     role: 'Chief Executive Officer (CEO)',
     image: pradip,
     linkedin: 'https://www.linkedin.com/in/pradiptimsina?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
     email: 'pradip.timsina@thinktankinfotech.com',
+  },
+  {
+    name: 'Janam Pandey',
+    role: 'Managing Director (MD)',
+    image: janam,
+    linkedin: 'https://np.linkedin.com/in/janam-pandey-6bb571199',
+    email: 'janam.pandey@thinktankinfotech.com',
   },
   {
     name: 'Bikesh Gupta',
@@ -40,10 +41,11 @@ const teamMembers = [
 const OurAdvisors = [
   {
     name: 'Harihar Kadel',
-    role: 'Oracle',
-    image: dharmendra,
+    role: 'Senior Advisor',
+    corporation: 'Oracle Corporation',
+    image: harihar,
     linkedin: '#',
-    email: 'dharmendra.thakur@thinktankinfotech.com',
+    email: '#',
   },
 ];
 
@@ -109,14 +111,17 @@ const TeamGrid = () => {
               key={index}
               className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
             >
+            <div className="flex justify-center items-center my-4">
               <img
                 src={member.image}
                 alt={member.name}
-                className="w-full h-64 object-cover"
+                className="w-64 h-64 rounded-full object-cover"
               />
+               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-900 mb-1">{member.name}</h3>
-                <p className="text-gray-600 mb-4">{member.role}</p>
+                <p className="text-gray-600 mb-1">{member.role}</p>
+                <p className="text-gray-600">{member.corporation}</p>
               </div>
             </div>
           ))}
