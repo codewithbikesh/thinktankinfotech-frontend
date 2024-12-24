@@ -29,12 +29,13 @@ const Navbar = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
 
   const navItems = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Services", path: "/services" },
-    { name: "Team", path: "/team" },
+    // { name: "Team", path: "/team" },
     { name: "Careers", path: "/careers" },
     { name: "Contact", path: "/contact" },
   ];
@@ -42,54 +43,75 @@ const Navbar = () => {
   const megaMenuItems = [
     {
       title: "Web Development",
-      link: "/web-development",
-      description: "Build modern, responsive, and scalable websites for your business needs.",
+      link: "/services/web-development",
+      description:
+        "Build modern, responsive, and scalable websites for your business needs.",
       image: WebDevImage,
     },
     {
       title: "App Development",
-      link: "/app-development",
-      description: "Create powerful and user-friendly mobile apps for iOS and Android.",
+      link: "/services/app-development",
+      description:
+        "Create powerful and user-friendly mobile apps for iOS and Android.",
       image: AppDevImage,
     },
     {
       title: "UI/UX Design",
-      link: "/ui-ux-design",
+      link: "/services/ui-ux-design",
       description: "Design intuitive and visually appealing user experiences.",
       image: UIDesignImage,
     },
     {
       title: "System/Software Development",
-      link: "/system-software-development",
-      description: "System/software developed according to your business needs.",
+      link: "/services/system-software-development",
+      description:
+        "System/software developed according to your business needs.",
       image: Software_Development,
     },
     {
       title: "Graphic Design",
-      link: "/graphic-design",
-      description: "Designs that Speak Your Brand’s Narrative and Connect with Your Audience.",
+      link: "/services/graphic-design",
+      description:
+        "Designs that Speak Your Brand’s Narrative and Connect with Your Audience.",
       image: Graphic_Designer,
     },
     {
       title: "Social Media Marketing (SMM)",
-      link: "/social-media-marketing",
-      description: "Grow your business online with expert digital marketing strategies.",
+      link: "/services/social-media-marketing",
+      description:
+        "Grow your business online with expert digital marketing strategies.",
       image: SMM,
     },
     {
       title: "Content Writing",
-      link: "/content-writing",
-      description: "Engaging and meaningful content to connect with your audience.",
+      link: "/services/content-writing",
+      description:
+        "Engaging and meaningful content to connect with your audience.",
       image: Content_Creator,
     },
     {
       title: "Search Engine Optimization (SEO)",
-      link: "/search-engine-optimization",
-      description: "Custom SEO solutions for enhanced search engine visibility and growth.",
+      link: "/services/search-engine-optimization",
+      description:
+        "Custom SEO solutions for enhanced search engine visibility and growth.",
       image: Online_add,
     },
   ];
 
+  const megaMenuItemsAbout = [
+    {
+      title: "Introduction",
+      link: "/about",
+      description:
+        "Learn about our mission, vision, and the values that drive our organization forward.",
+    },
+    {
+      title: "Our Team",
+      link: "/team",
+      description:
+        "Meet the passionate individuals behind our success and their expertise.",
+    },
+  ];
   return (
     <nav className="bg-white shadow-lg fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -134,6 +156,32 @@ const Navbar = () => {
                     ))}
                   </div>
                 </div>
+              ) : item.name === "About" ? (
+                <div key={item.name} className="relative group">
+                  <button
+                    className="text-gray-700 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center"
+                    onClick={(e) => e.preventDefault()} // Prevent default action
+                  >
+                    {item.name}
+                    <ChevronDown className="ml-1" size={14} />
+                  </button>
+                  <div className="absolute left-1/2 transform -translate-x-1/2 hidden group-hover:flex flex-col bg-white shadow-lg p-6 w-[320px] z-50">
+                    {megaMenuItemsAbout.map((menuItem) => (
+                      <Link
+                        key={menuItem.title}
+                        to={menuItem.link}
+                        className="flex flex-col items-start space-y-2 p-4 rounded hover:bg-gray-100 transition"
+                      >
+                        <h3 className="text-gray-800 hover:text-green-600 text-sm font-bold">
+                          {menuItem.title}
+                        </h3>
+                        <p className="text-gray-600 text-sm">
+                          {menuItem.description}
+                        </p>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               ) : (
                 <Link
                   key={item.name}
@@ -152,7 +200,11 @@ const Navbar = () => {
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-green-600 focus:outline-none"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
           </div>
         </div>
@@ -177,13 +229,17 @@ const Navbar = () => {
                     )}
                   </button>
                   {isMegaMenuOpen && (
-                    <div className="bg-gray-50 px-4 py-4 rounded-md shadow-lg overflow-x-auto">
-                      <div className="flex space-x-4">
+                    <div className="bg-gray-50 px-4 py-4 rounded-md shadow-lg overflow-y-auto max-h-64">
+                      <div className="flex flex-col space-y-4">
                         {megaMenuItems.map((menuItem) => (
                           <Link
                             key={menuItem.title}
                             to={menuItem.link}
-                            className="flex flex-col items-center space-y-2 min-w-full bg-gray-100 p-4 rounded-lg"
+                            className="flex flex-col items-center space-y-2 bg-gray-100 p-4 rounded-lg"
+                            onClick={() => {
+                        setIsOpen(false); // Close menu on link click
+                        setIsMegaMenuOpen(false); // Close the dropdown
+                      }}
                           >
                             <div className="flex justify-center items-center w-full">
                               <img
@@ -196,6 +252,44 @@ const Navbar = () => {
                               {menuItem.title}
                             </h3>
                             <p className="text-gray-600 text-sm text-center">
+                              {menuItem.description}
+                            </p>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : item.name === "About" ? (
+                <div key={item.name}>
+                  <button
+                    onClick={() => setIsAboutOpen(!isAboutOpen)}
+                    className="w-full text-left flex justify-between items-center text-gray-700 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium"
+                  >
+                    {item.name}
+                    {isAboutOpen ? (
+                      <ChevronUp className="h-5 w-5 text-gray-500" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5 text-gray-500" />
+                    )}
+                  </button>
+                  {isAboutOpen && (
+                    <div className="bg-gray-50 px-4 py-4 rounded-md shadow-lg overflow-y-auto max-h-64">
+                      <div className="flex flex-col space-y-4">
+                        {megaMenuItemsAbout.map((menuItem) => (
+                          <Link
+                            key={menuItem.title}
+                            to={menuItem.link}
+                            className="flex flex-col items-start space-y-2 bg-gray-100 p-4 rounded-lg hover:bg-gray-200 transition" 
+                            onClick={() => {
+                        setIsOpen(false); // Close menu on link click
+                        setIsAboutOpen(false); // Close the dropdown
+                      }}
+                          >
+                            <h3 className="text-gray-800 hover:text-green-600 text-sm font-bold">
+                              {menuItem.title}
+                            </h3>
+                            <p className="text-gray-600 text-sm">
                               {menuItem.description}
                             </p>
                           </Link>
